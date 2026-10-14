@@ -1,0 +1,116 @@
+{
+  "id": "resume_demo_graduate",
+  "name": "演示简历_产品经理应届生",
+  "templateId": "classic_orange",
+  "basic": {
+    "name": "林晓（演示）",
+    "email": "demo@example.com",
+    "phone": "138****0000",
+    "location": "示例城市",
+    "extra": "英语 CET-6｜以下人物、单位与经历均为虚构",
+    "customFields": [
+      { "label": "毕业时间", "value": "2027 年 6 月" },
+      { "label": "到岗时间", "value": "两周内到岗" }
+    ],
+    "target": "产品经理 / 产品助理",
+    "photo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACklEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg=="
+  },
+  "sections": [
+    {
+      "id": "education",
+      "title": "教育背景",
+      "items": [
+        {
+          "id": "demo_education_1",
+          "title": "示例大学（虚构）",
+          "subtitle": "信息管理与信息系统 | 本科",
+          "date": "2023.09 - 2027.06",
+          "summary": "",
+          "bullets": [
+            "**专业学习：** 主修信息系统分析、用户研究、统计学与数据库课程，能够理解业务流程并梳理信息需求。",
+            "**校园实践：** 参与校园服务产品调研，负责用户访谈、需求整理与交互原型设计。"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "title": "实习经历",
+      "items": [
+        {
+          "id": "demo_experience_1",
+          "title": "示例科技有限公司（虚构）",
+          "subtitle": "产品部 | 产品实习生",
+          "date": "2026.07 - 2026.09",
+          "summary": "参与企业内部工单系统优化，协助改善问题提交和处理进度查询体验。",
+          "bullets": [
+            "**需求梳理：** 结合客服反馈与使用记录，整理提交信息不完整、处理状态不清晰等问题，明确优化优先级。",
+            "**方案设计：** 设计分类提交、必填提示与进度展示流程，输出页面原型和需求说明，与研发确认异常场景。",
+            "**上线跟进：** 参与功能验收并整理试用反馈，将高频问题纳入后续迭代，补充操作指引。"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "title": "项目经历",
+      "items": [
+        {
+          "id": "demo_project_1",
+          "title": "校园自习室预约工具（虚构）",
+          "subtitle": "课程项目 | 产品负责人",
+          "date": "2026.03 - 2026.06",
+          "summary": "面向学生找座位和管理员维护预约记录的需求，设计轻量化预约工具。",
+          "bullets": [
+            "**用户调研：** 访谈学生与管理员，识别空位信息不及时、预约规则难理解和临时取消不便等问题。",
+            "**产品设计：** 梳理“查看空位—选择时段—确认预约—签到使用”流程，补充取消、超时和重复预约规则。",
+            "**迭代验证：** 组织同学试用交互原型，根据反馈简化预约步骤，将个人预约记录放在首页便于查看。"
+          ]
+        },
+        {
+          "id": "demo_project_2",
+          "title": "校园二手交易体验研究（虚构）",
+          "subtitle": "小组项目 | 调研与方案设计",
+          "date": "2025.10 - 2025.12",
+          "summary": "",
+          "bullets": [
+            "**问题分析：** 对比常见交易流程，整理商品描述不充分、沟通反复和交接安排不明确等体验问题。",
+            "**方案输出：** 提出分类发布、成色说明和交接时间确认方案，通过原型演示验证信息是否易于理解。"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "title": "专业能力",
+      "items": [
+        {
+          "id": "demo_skills_1",
+          "title": "",
+          "subtitle": "",
+          "date": "",
+          "summary": "",
+          "bullets": [
+            "**产品设计：** 能独立梳理业务流程、制作交互原型和撰写需求文档，关注边界条件与异常处理。",
+            "**分析工具：** 熟悉 Excel 数据整理与基础 SQL 查询，能够通过使用记录和用户反馈辅助判断问题。",
+            "**沟通协作：** 能将需求转化为清晰的页面与规则说明，配合研发、测试完成评审和验收。"
+          ]
+        }
+      ]
+    }
+  ],
+  "style": {
+    "accent": "#2563eb",
+    "font": "yahei",
+    "titleFont": "simsun",
+    "bodySize": 10.3,
+    "lineHeight": 1.68,
+    "marginX": 11,
+    "marginY": 11,
+    "sectionGap": 5,
+    "entryGap": 4,
+    "bulletIndent": 0,
+    "photoSize": 24,
+    "showPhoto": false
+  }
+}

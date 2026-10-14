@@ -1,0 +1,30 @@
+name: Windows checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript
+        run: node --check app.js
+      - name: Install and check repeat installation
+        shell: powershell
+        run: |
+          & scripts/install.ps1 -NoStart -NoShortcut
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & scripts/install.ps1 -NoStart -NoShortcut
+          exit $LASTEXITCODE
+      - name: Run API tests
+        shell: powershell
+        run: |
+          & .venv/Scripts/python.exe -m pip install -r requirements-dev.txt
+          & .venv/Scripts/python.exe -m unittest discover -s tests -v
+          exit $LASTEXITCODE

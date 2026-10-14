@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>简历排版工作台</title>
+    <link rel="stylesheet" href="/styles.css?v=1.0.0" />
+  </head>
+  <body data-active-view="resume">
+    <header class="app-header">
+      <button class="brand" type="button"  aria-label="返回简历制作">
+        <span class="brand-mark">R</span>
+        <span><strong>简历排版工作台</strong><small>RESUME LAYOUT STUDIO</small></span>
+      </button>
+      <div class="header-resume-controls">
+        <div class="resume-identity">
+          <input id="resume-name" class="resume-name-input" maxlength="80" value="未命名简历" aria-label="简历名称" />
+          <span id="save-status" class="save-status">尚未保存</span>
+        </div>
+        <div class="toolbar-actions">
+          <button id="new-resume-btn" class="button ghost" type="button">新建</button>
+          <button id="import-btn" class="button ghost secondary-action" type="button">导入</button>
+          <button id="export-json-btn" class="button ghost secondary-action" type="button">导出 JSON</button>
+          <button id="library-btn" class="button ghost secondary-action" type="button">简历库</button>
+          <details class="more-actions">
+            <summary class="button ghost">更多</summary>
+            <div class="more-actions-menu">
+              <button class="more-menu-button" type="button" data-json-trigger>导出 JSON</button>
+              <button class="more-menu-button" type="button" data-import-trigger aria-label="导入简历">导入简历</button>
+              <button class="more-menu-button" type="button" data-library-trigger aria-label="简历库">简历库</button>
+            </div>
+          </details>
+          <button id="template-btn" class="button ghost" type="button">模板</button>
+          <button id="export-pdf-btn" class="button primary" type="button">导出 PDF</button>
+        </div>
+      </div>
+      <div class="header-status">
+        <span id="service-status" class="service-status" title="正在连接"><i></i>正在连接</span>
+      </div>
+    </header>
+
+    <main>
+      <section id="resume-view" class="app-view is-active" data-view="resume">
+        <div class="resume-workspace">
+          <aside class="editor-panel" aria-label="简历编辑区">
+            <div id="start-panel" class="start-panel">
+              <div class="start-icon">↗</div>
+              <h1>开始制作简历</h1>
+              <p>导入已有内容，或从空白简历开始。</p>
+              <div class="start-actions">
+                <button class="button primary large" type="button" data-import-trigger>上传简历</button>
+                <button id="blank-resume-btn" class="button ghost large" type="button">从空白开始</button>
+                <button id="example-btn" class="button ghost large" type="button">打开演示简历</button>
+              </div>
+              <small>JSON 完整导入；Word（.docx）、文字版 PDF、Markdown、TXT 提取文字后可编辑，最大 15 MB</small>
+            </div>
+
+            <div id="editor-content" class="editor-content" hidden>
+              <section class="editor-block">
+                <div class="block-heading">
+                  <div><span class="step-number">01</span><h2>基本信息</h2></div>
+                  <button id="add-basic-field-btn" class="text-button" type="button">＋ 新增信息</button>
+                </div>
+                <div id="basic-form" class="basic-form"></div>
+              </section>
+
+              <section class="editor-block sections-block">
+                <div class="block-heading">
+                  <div><span class="step-number">02</span><h2>简历模块</h2></div>
+                  <button id="add-section-btn" class="text-button" type="button">＋ 新增模块</button>
+                </div>
+                <div id="sections-form" class="sections-form"></div>
+              </section>
+            </div>
+          </aside>
+
+          <section class="preview-panel" aria-label="PDF 分页预览">
+            <div class="preview-toolbar">
+              <div>
+                <strong>PDF 分页预览</strong>
+                <span id="page-count">0 页</span>
+              </div>
+              <div class="preview-toolbar-actions">
+                <span id="overflow-warning" class="overflow-warning" hidden>存在溢出内容</span>
+                <button id="fit-btn" class="button tiny ghost" type="button">实际大小</button>
+              </div>
+            </div>
+            <div id="preview-stage" class="preview-stage">
+              <div id="preview-empty" class="preview-empty">
+                <span>A4</span>
+                <p>填写或导入内容后，这里会显示真实分页效果。</p>
+              </div>
+              <div id="resume-pages" class="resume-pages" hidden></div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+    </main>
+
+    <div id="drawer-backdrop" class="drawer-backdrop" hidden></div>
+
+    <aside id="template-drawer" class="drawer" aria-labelledby="template-drawer-title" hidden>
+      <header class="drawer-header">
+        <div><p class="eyebrow">APPEARANCE</p><h2 id="template-drawer-title">模板与样式</h2></div>
+        <button class="drawer-close" type="button" aria-label="关闭">×</button>
+      </header>
+      <div class="drawer-body">
+        <div class="template-grid">
+          <button class="template-card is-selected" type="button" data-template="classic_orange">
+            <span class="template-thumbnail orange"><i></i><i></i><i></i></span>
+            <strong>经典蓝·单栏</strong><small>清晰通用，适合大多数岗位</small>
+          </button>
+          <button class="template-card" type="button" data-template="professional_blue">
+            <span class="template-thumbnail blue"><i></i><i></i><i></i></span>
+            <strong>专业蓝·紧凑</strong><small>信息密度高，适合技术与数据岗位</small>
+          </button>
+        </div>
+        <div id="style-form" class="style-form"></div>
+      </div>
+    </aside>
+
+    <aside id="library-drawer" class="drawer wide" aria-labelledby="library-drawer-title" hidden>
+      <header class="drawer-header">
+        <div><p class="eyebrow">RESUME LIBRARY</p><h2 id="library-drawer-title">简历库</h2></div>
+        <div class="drawer-header-actions">
+          <button class="drawer-close" type="button" aria-label="关闭">×</button>
+        </div>
+      </header>
+      <div class="drawer-body">
+        <div id="library-list" class="library-list"></div>
+      </div>
+    </aside>
+
+    <input id="resume-file-input" type="file" accept=".docx,.pdf,.md,.markdown,.txt,.json" hidden />
+    <input id="photo-file-input" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+    <div id="toast" class="toast" role="status" hidden></div>
+
+    <script src="/app.js?v=1.0.0"></script>
+  </body>
+</html>
